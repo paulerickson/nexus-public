@@ -19,7 +19,7 @@ jobs:
           command: curl -O https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
       - run:
           name: Start Selenium
-          command: java -jar selenium-server-standalone-3.141.59.jar -log test-results/selenium.log
+          command: java -jar selenium-server-standalone-3.141.59.jar -log ~/test-results/selenium.log
           background: true
       - run: mvn -U clean install
       - run:
