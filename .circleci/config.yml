@@ -13,6 +13,14 @@ jobs:
     executor: my-executor
     steps:
       - checkout
+      - run: mkdir -p ~/test-results
+      - run:
+          name: Download Selenium
+          command: curl -O https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
+      - run:
+          name: Start Selenium
+          command: java -jar selenium-server-standalone-3.141.59.jar -log test-results/selenium.log
+          background: true
       - run: mvn -U clean install
       - run:
           name: Save test results
